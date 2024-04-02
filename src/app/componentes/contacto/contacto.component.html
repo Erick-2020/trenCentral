@@ -1,1 +1,90 @@
-<p>contacto works!</p>
+<app-nav></app-nav>
+<section>
+    <H2 class="text-center text-3xl">CONTACTANOS</H2>
+    <div class="min-h-screen p-0 sm:p-12">
+        <div class="mx-auto max-w-md px-6 py-6 bg-white border-0 shadow-lg sm:rounded-3xl">
+          <form id="form" novalidate>
+
+            <div class="relative z-0 w-full mb-5">
+              <input
+                type="text"
+                name="name"
+                placeholder=""
+                required
+                class="pt-3 pb-2 block w-full mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-blue-400"
+              />
+              <span class="absolute -translate-y-full pb-2 text-blue-400"><svg-user></svg-user></span>
+              <label for="message" class="absolute pl-7 duration-300 top-3 -z-1 origin-0 text-gray-500">Ingresa el nombre</label>
+              <span class="text-sm text-red-600 hidden" id="error">Name is required</span>
+            </div>
+            <div class="relative z-0 w-full mb-5">
+                <input
+                  type="text"
+                  name="lastname"
+                  placeholder=""
+                  required
+                  class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-blue-400"
+                />
+                <span class="absolute -translate-y-full pb-2 text-blue-400"><svg-user></svg-user></span>
+                <label for="message" class="absolute pl-7 duration-300 top-3 -z-1 origin-0 text-gray-500">Ingresa el apellido</label>
+                <span class="text-sm text-red-600 hidden" id="error">LastName is required</span>
+              </div>
+      
+            <div class="relative z-0 w-full mb-5">
+              <input
+                type="email"
+                name="email"
+                placeholder=""
+                class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-blue-400"
+              />
+              <span class="absolute -translate-y-full pb-2 text-blue-400"><svg-email></svg-email></span>
+              <label for="message" class="absolute pl-7 duration-300 top-3 -z-1 origin-0 text-gray-500">Ingresa el email</label>
+              <span class="text-sm text-red-600 hidden" id="error">Email address is required</span>
+            </div>
+            
+            <div class="relative z-0 w-full mb-5">
+                <input
+                  type="number"
+                  name="phone"
+                  placeholder=""
+                  class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-blue-400"
+                />
+                <span class="absolute -translate-y-full pb-2 text-blue-400"><svg-phone></svg-phone></span>
+                <label for="message" class="absolute pl-7 duration-300 top-3 -z-1 origin-0 text-gray-500">Ingresa el telefono</label>
+                <span class="text-sm text-red-600 hidden" id="error">Phone is required</span>
+            </div>
+
+            <label for="message" class="pl-7 duration-300 top-3 -z-1 origin-0 text-gray-500">Mensaje</label>
+            
+            <div class="relative z-0 w-full mb-5">
+                <span class="absolute -translate-y-3/4 pb-2 text-blue-400"><svg-message></svg-message></span>
+                <textarea class="border-2 border-blue-400 rounded-lg"
+                    placeholder="Mensaje..." 
+                    name="message"
+                    id="message"
+                    cols="50"
+                    rows="10">
+                </textarea> 
+                <span class="text-sm text-red-600 hidden" id="error">Message is required</span>
+            </div>
+
+            <div class="relative w-full justify-center">
+                <input type="checkbox" name="term" id="term">
+                <label for="term">He leido y acepto las condiciones de <a class="text-blue-600" href="" target="_blank">Tren Central</a></label>
+            </div>
+
+
+
+      
+            <button
+            (click)="toggleError()"
+              id="button"
+              type="button"
+              class="w-full px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blue-500 hover:bg-blue-600 hover:shadow-lg focus:outline-none"
+            >
+              Enviar
+            </button>
+          </form>
+        </div>
+      </div>
+</section>

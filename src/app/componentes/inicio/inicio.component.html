@@ -1,1 +1,36 @@
+<section class="header">
+  <div class="cortina h-screen">
 
+    <app-nav></app-nav>
+    <!-- <app-nav></app-nav> -->
+    <header class="text-center w-3/4 justify-center m-auto pt-32 pb-48">
+        <h1 class="text-4xl text-white py-5">EXPLORA LAS VIAS FERREAS</h1>
+        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis,
+        lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo,</p>
+      </header>
+      
+      <form class="w-3/4 mx-auto pt-10">   
+        <div class="relative flex">
+            <!-- CONTENEDOR DEL ICONO DEL BUSCADOR -->
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+              <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+              </svg>
+            </div>
+            <!-- 3 BUSCADOR DE JOHN -->
+            <input [(ngModel)]="searchTerm" (ngModelChange)="onSearch()" (keyup.enter)="onSearch()" type="text"  id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " placeholder="Ciudad Origen" required />
+            
+            <input [(ngModel)]="searchTerm" (ngModelChange)="onSearch()" (keyup.enter)="onSearch()" type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " placeholder="Ciudad Destino" required />
+            
+            <input [(ngModel)]="searchTerm" (ngModelChange)="onSearch()" (keyup.enter)="onSearch()" type="date" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " required />
+            
+            <button (click)="onSearch()" (ngModelChange)="onSearch()" type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Buscar</button>
+        </div>
+        
+      </form>
+    </div>
+</section>
+
+<section class="my-20">
+    <h2 class="text-center text-3xl w-full">OFERTAS DESDE BOGOTA</h2>
+</section>
