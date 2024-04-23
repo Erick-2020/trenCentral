@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { NavComponent } from "../nav/nav.component";
 import { FormsModule } from '@angular/forms';
+import { StringifyOptions } from 'node:querystring';
 
 @Component({
     selector: 'app-inicio',
@@ -15,6 +16,18 @@ export class InicioComponent {
 
     // VARIABLE QUE VA ALMACEWNANDO UNA A UNA CADA PALABRA
     searchTerm: string = '';
+    items = [
+        {
+            id: 1,
+            name: "belencito",
+            precio: 599
+        },
+        {
+            id: 2,
+            name: "belencito",
+            precio: 599
+        }
+    ]
 
     // METODO MEDIANTE EL CUAL VA VALIDANDO QUE EL BUSCADOR NO ESTE VACIO
     // Y EMITE UNA LISTA DE LO QUE ENCUENTRA 

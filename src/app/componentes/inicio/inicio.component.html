@@ -3,13 +3,13 @@
 
     <app-nav></app-nav>
     <!-- <app-nav></app-nav> -->
-    <header class="text-center w-3/4 justify-center m-auto pt-32 pb-48">
+    <header class="text-center w-3/4 justify-center m-auto pt-32 pb-28">
         <h1 class="text-4xl text-white py-5">EXPLORA LAS VIAS FERREAS</h1>
         <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis,
         lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo,</p>
       </header>
       
-      <form class="w-3/4 mx-auto pt-10">   
+      <form class="w-3/4 mx-auto">   
         <div class="relative flex">
             <!-- CONTENEDOR DEL ICONO DEL BUSCADOR -->
             <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -18,13 +18,8 @@
               </svg>
             </div>
             <!-- 3 BUSCADOR DE JOHN -->
-            <input [(ngModel)]="searchTerm" (ngModelChange)="onSearch()" (keyup.enter)="onSearch()" type="text"  id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " placeholder="Ciudad Origen" required />
-            
-            <input [(ngModel)]="searchTerm" (ngModelChange)="onSearch()" (keyup.enter)="onSearch()" type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " placeholder="Ciudad Destino" required />
-            
-            <input [(ngModel)]="searchTerm" (ngModelChange)="onSearch()" (keyup.enter)="onSearch()" type="date" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " required />
-            
-            <button (click)="onSearch()" (ngModelChange)="onSearch()" type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Buscar</button>
+            <!-- 3<input [(ngModel)]="searchTerm" ngOnChange("onSearch()") (keyup.enter)="onSearch()" type="text"  id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " placeholder="Ciudad Origen" required /> -->
+            <!-- 3<button (click)="onSearch()" (ngModelChange)="onSearch()" type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Buscar</button> -->
         </div>
         
       </form>
@@ -32,5 +27,25 @@
 </section>
 
 <section class="my-20">
+
     <h2 class="text-center text-3xl w-full">OFERTAS DESDE BOGOTA</h2>
+    <!-- CONTENDER DE LAS CARD -->
+    <!-- Ford para iterar las CARD en relacion a la cantidad de viajes existentes en la db -->
+      
+      <div class="flex p-5">
+        <!-- CARD 1 -->
+        @for(item of items; track item.id){
+        <div class="card p-5 w-full max-w-sm border border-gray-200 rounded-lg shadow">
+        
+            <a href="#">
+                <h5 class="text-xl font-semibold tracking-tight text-gray-900">{{ item.name }}</h5>
+                <p>Por Trayecto desde:</p>
+            </a>
+            <div class="">
+                <span class="text-3xl font-bold text-gray-900">{{ item.precio }}</span>
+            </div>
+
+        </div>
+        }
+      </div>
 </section>
