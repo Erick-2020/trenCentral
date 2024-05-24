@@ -1,33 +1,37 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import { NavComponent } from "../nav/nav.component";
 import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { StringifyOptions } from 'node:querystring';
+import { ViajesService } from '../services/viajes.service';
+import { CommonModule } from '@angular/common';
+import { Usuario } from '../../interfaces/usuarios.interface';
 
 @Component({
     selector: 'app-inicio',
     standalone: true,
     templateUrl: './inicio.component.html',
     styleUrl: './inicio.component.scss',
-    imports: [NavComponent, FormsModule]
+    imports: [NavComponent, FormsModule, CommonModule ]
 })
-export class InicioComponent {
+export class InicioComponent implements OnInit {
+
+    ngOnInit(): void {
+        this.obtenerUsuarios();
+      }
+
+    public usuarios: Usuario[] = []
+
+    //creamos la variable con la injeccion de la dependencia del servicio
+    private usuariosTren = inject(ViajesService);
+
+
     // METODO QUE RECIBE EN EVENTO ESCUCHA DE LAS PALABRAS A BUSCAR
     @Output() searchEvent = new EventEmitter<string>();
 
     // VARIABLE QUE VA ALMACEWNANDO UNA A UNA CADA PALABRA
     searchTerm: string = '';
-    items = [
-        {
-            id: 1,
-            name: "belencito",
-            precio: 599
-        },
-        {
-            id: 2,
-            name: "belencito",
-            precio: 599
-        }
-    ]
 
     // METODO MEDIANTE EL CUAL VA VALIDANDO QUE EL BUSCADOR NO ESTE VACIO
     // Y EMITE UNA LISTA DE LO QUE ENCUENTRA 
@@ -40,5 +44,14 @@ export class InicioComponent {
         this.searchEvent.emit(this.searchTerm);
         }
     }
+
+    public obtenerUsuarios() {
+        this.usuariosTren.getUsuarios()
+            .subscribe(users => {
+                console.log(users);
+                this.usuarios = users;
+            });
+    }
+
 
 }

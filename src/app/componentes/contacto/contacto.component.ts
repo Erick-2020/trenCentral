@@ -1,44 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { UserComponent } from "../icons/user/user";
 import { EmailComponent } from "../icons/email/email";
 import { PhoneComponent } from "../icons/phone/phone";
 import { MessageComponent } from "../icons/message/message";
 import { NavComponent } from "../nav/nav.component";
+import { FormBuilder, FormControlName, FormGroup, FormsModule, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-contacto',
     standalone: true,
     templateUrl: './contacto.component.html',
     styleUrl: './contacto.component.scss',
-    imports: [UserComponent, EmailComponent, PhoneComponent, MessageComponent, NavComponent]
+    imports: [UserComponent, EmailComponent, PhoneComponent, MessageComponent, NavComponent, FormsModule]
 })
-
-
-
-
-
-
-
-
     
-export class ContactoComponent {
-  errMessages = document.querySelectorAll('#error')
+export class ContactoComponent implements OnInit {
 
-  toggleError() {
-    // Show error message
-    this.errMessages.forEach((el) => {
-      el.classList.toggle('hidden')
-    })
-  
-    // Highlight input and label with red
-    const allBorders = document.querySelectorAll('.border-gray-200')
-    const allTexts = document.querySelectorAll('.text-gray-500')
-    allBorders.forEach((el) => {
-      el.classList.toggle('border-red-600')
-    })
-    allTexts.forEach((el) => {
-      el.classList.toggle('text-red-600')
-    })
+  FormContact = FormGroup;
+
+  ngOnInit(): void {}
+
+
+  private formBuilder = inject(FormBuilder);
+
+  formContact = this.formBuilder.group({
+    name: ['', [Validators.required]],
+    lastName: ['', [Validators.required]],
+    email: ['', [Validators.required, Validators.email]],
+    phone: ['', [Validators.required]],
+    message: ['', [Validators.required]],
+  })
+
+  contact() {
+    if (this.formContact.valid) {
+      console.log(this.formContact.value);
+    } else {
+      console.log('Formulario no válido');
+    }
   }
   
 }
