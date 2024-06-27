@@ -53,5 +53,11 @@ export class InicioComponent implements OnInit {
             });
     }
 
+    offers = [
+        {id: 1, title: 'Belencito, Boyaca', price: 'COP $80.000', image: '../../../assets/img/belencito.jpg' },
+        {id: 2, title: 'Tunja, Boyaca', price: 'COP $70.000', image: '../../../assets/img/tunja.jpg' },
+        {id: 3,  title: 'La Caro, Cundinamarca', price: 'COP $20.000', image: '../../../assets/img/caro.jpeg' }
+      ];
+
 
 }

@@ -30,14 +30,6 @@ export class ContactoComponent implements OnInit {
     phone: ['', [Validators.required]],
     message: ['', [Validators.required]],
   })
-
-  contact() {
-    if (this.formContact.valid) {
-      console.log(this.formContact.value);
-    } else {
-      console.log('Formulario no válido');
-    }
-  }
   
 }
 

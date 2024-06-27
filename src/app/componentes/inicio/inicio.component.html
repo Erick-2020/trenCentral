@@ -51,6 +51,20 @@
         }
       </div>
 </section>
+<section>
+  <div class="offers-container">
+    @for(offer of offers; track offer.id){
+      <div class="offer-card">
+        <img [src]="offer.image" alt="{{offer.title}}">
+        <div class="offer-details">
+          <h3>{{offer.title}}</h3>
+          <p>Por trayecto desde:</p>
+          <p>{{offer.price}}</p>
+        </div>
+      </div>
+    }
+  </div>
+</section>
 
 <section class="my-20">
   <h2 class="text-center text-3xl w-full">NOTICIAS SOBRE LAS VIAS FERREAS</h2>
